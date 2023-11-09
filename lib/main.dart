@@ -1,12 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:vigyapn/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await FlutterFire.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
@@ -29,7 +32,8 @@ class AuthenticationPage extends StatelessWidget {
 
   void _signInWithGoogle(BuildContext context) async {
     final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
-    final GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser!.authentication;
     final AuthCredential credential = GoogleAuthProvider.credential(
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
@@ -62,7 +66,8 @@ class AuthenticationPage extends StatelessWidget {
                   children: <Widget>[
                     Image.asset('assets/google_logo.png', height: 24.0),
                     const SizedBox(width: 16.0),
-                    const Text('Sign in with Google', style: TextStyle(fontSize: 16)),
+                    const Text('Sign in with Google',
+                        style: TextStyle(fontSize: 16)),
                   ],
                 ),
               ),
@@ -87,7 +92,8 @@ class AuthenticationPage extends StatelessWidget {
               onPressed: () {
                 // Implement your forgot password logic here
               },
-              child: const Text('Forgot Password?', style: TextStyle(fontSize: 16, color: Colors.blue)),
+              child: const Text('Forgot Password?',
+                  style: TextStyle(fontSize: 16, color: Colors.blue)),
             ),
           ],
         ),
