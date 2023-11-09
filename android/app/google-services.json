@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "634858997845",
+    "project_id": "vigyapn-vakbox",
+    "storage_bucket": "vigyapn-vakbox.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634858997845:android:9b6686a2967b0300562cdc",
+        "android_client_info": {
+          "package_name": "com.example.vigyapn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM-FW9_IQiGNm2Vn7XrZtl7Rtcyw4CEWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
