@@ -10,11 +10,25 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SignInScreen(
+      sideBuilder: (context, constraints) => 
+
+      Center(child: Image.asset('assets/logo.png'),),
+      
+      
+      // const Center(
+      //     child: Text(
+      //   'V I G Y A A P A N',
+      //   style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+      // )),
+      
       showAuthActionSwitch: true,
-      providers: [EmailAuthProvider(),GoogleProvider(clientId: GOOGLE_CLIENT_ID)],
+      providers: [
+        EmailAuthProvider(),
+        GoogleProvider(clientId: GOOGLE_CLIENT_ID)
+      ],
       actions: [
         AuthStateChangeAction<SignedIn>((context, state) {
-          Navigator.pushReplacementNamed(context, '/profile');
+          Navigator.pushReplacementNamed(context, '/home');
         }),
       ],
     );
